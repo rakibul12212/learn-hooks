@@ -28,6 +28,54 @@ const products = [
     description: "RGB lighting and adjustable DPI.",
     price: 39.99,
   },
+  {
+    id: 5,
+    name: "Laptop Stand",
+    description: "Ergonomic laptop stand ",
+    price: 29.99,
+  },
+  {
+    id: 6,
+    name: "USB-C Hub",
+    description: "Multi-port USB-C hub for connectivity.",
+    price: 19.99,
+  },
+  {
+    id: 7,
+    name: "Wireless Charger",
+    description: "Fast wireless charging pad.",
+    price: 24.99,
+  },
+  {
+    id: 8,
+    name: "Portable SSD",
+    description: "High-speed portable solid-state drive.",
+    price: 99.99,
+  },
+  {
+    id: 9,
+    name: "Ergonomic Keyboard",
+    description: "Mechanical keyboard .",
+    price: 59.99,
+  },
+  {
+    id: 10,
+    name: "Webcam",
+    description: "1080p HD webcam for video calls.",
+    price: 49.99,
+  },
+  {
+    id: 11,
+    name: "Smartphone Stand",
+    description: "Adjustable stand for smartphones.",
+    price: 14.99,
+  },
+  {
+    id: 12,
+    name: "HDMI Cable",
+    description: "High-speed HDMI cable for video",
+    price: 9.99,
+  },
 ];
 
 const UseStateHookPage = () => {
@@ -35,7 +83,7 @@ const UseStateHookPage = () => {
   const addToCart = (product) => {
     setCartItems((prevCart) => [...prevCart, product]);
   };
-  
+
   const handleDelete = (id) => {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
@@ -46,13 +94,15 @@ const UseStateHookPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {products.map((item) => (
             <div key={item.id} className="p-4 border border-gray-300 space-y-2">
-              <p className="font-bold">{item.name}</p>
-              <p>{item.description}</p>
+              <p className="font-bold text-xl">{item.name}</p>
+              <p className="text-lg">{item.description}</p>
 
-              <p className="text-green-600 font-semibold">${item.price}</p>
+              <p className="text-green-600 font-semibold text-lg">
+                ${item.price}
+              </p>
               <button
                 onClick={() => addToCart(item)}
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                className=" border-2 border-gray-400 text-black font-semibold px-3 py-1 rounded hover:bg-black hover:text-white"
               >
                 Add to Cart
               </button>

@@ -7,6 +7,7 @@ const UseEffectPage = () => {
       <p className="text-center text-3xl font-semibold">
         <u>Use Effect Hook</u>
       </p>
+      <p className="pl-4 text-3xl font-semibold">Users</p>
       <UseEffectHookPage />
     </div>
   );

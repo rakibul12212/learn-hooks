@@ -1,4 +1,4 @@
-import Cart from "@/component/Hooks/UseState/Cart";
+
 import UseStateHookPage from "@/component/Hooks/UseState/UseStateHookPage";
 
 const UseStatePage = () => {
@@ -7,6 +7,7 @@ const UseStatePage = () => {
       <p className="text-center text-3xl font-semibold">
         <u>Use State Hook</u>
       </p>
+      <p className="pl-8 text-3xl font-semibold">Product</p>
       <UseStateHookPage />
     </div>
   );
