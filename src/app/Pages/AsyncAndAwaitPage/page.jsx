@@ -1,5 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react";
+
+import { useEffect, useState } from "react";
+
+import Loading from "./loading";
 
 const AsyncAndAwaitPage = () => {
   const [comments, setComments] = useState(null);
@@ -11,19 +14,14 @@ const AsyncAndAwaitPage = () => {
     };
     fetchComments();
   }, []);
-  if (!comments)
-    return (
-      <p className="flex justify-center items-center h-screen text-2xl font-semibold">
-        Loading...
-      </p>
-    );
+  if (!comments) return <Loading/>;
 
   return (
     <div className="space-y-8 p-8">
       <p className="text-center text-3xl font-semibold">
         <u>Async And Await</u>
       </p>
-      <p className="pl-4 text-3xl font-semibold">Comments</p>
+      <p className="pl-4 text-3xl font-semibold">Comments </p>
       <div className="space-y-4 p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {comments.slice(0, 9).map((item, id) => (
           <div key={id} className="p-4 border border-gray-300 space-y-2">

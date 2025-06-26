@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 
 const navLinks = [
@@ -9,31 +9,42 @@ const navLinks = [
   { href: "/Pages/UseEffectPage", label: "UseEffect" },
   { href: "/Pages/UseReducePage", label: "UseReduce" },
   { href: "/Pages/CustomHookPage", label: "Custom hook" },
+  { href: "/Pages/Promise", label: "Promise" },
   { href: "/Pages/AsyncAndAwaitPage", label: "AsyncAndAwait" },
   { href: "/Pages/ArrayMethodPage", label: "ArrayMethod" },
+  { href: "/Pages/Callback-Function", label: "Callback-Function" },
 ];
 
 const Header = () => {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleChange = (e) => {
+    const selectedPath = e.target.value;
+    if (selectedPath) {
+      router.push(selectedPath);
+    }
+  };
 
   return (
     <div className="flex items-center justify-between px-10 py-4 shadow-lg">
       <Link href="/" className="font-semibold text-2xl">
-        Learn Hooks
+        CodeNest.
       </Link>
-      <ul className="flex items-center justify-center gap-x-6 font-semibold">
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className={`hover:border-b-2 ${
-              pathname === link.href ? "border-b-2 " : ""
-            }`}
-          >
-            {link.label}
-          </Link>
-        ))}
-      </ul>
+      <div className="font-semibold">
+        <select
+          onChange={handleChange}
+          value={pathname}
+          className="border border-gray-300 rounded px-3 py-2"
+        >
+          <option value="">Select Learning Item</option>
+          {navLinks.map((link) => (
+            <option key={link.href} value={link.href}>
+              {link.label}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };

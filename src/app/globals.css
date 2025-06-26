@@ -1,2 +1,28 @@
 @import "tailwindcss";
 
+/* loading component */
+.loader {
+    font-size: 48px;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: transparent;
+    position: relative;
+    background: linear-gradient(90deg, #000000 0%, #fff 50%, #000000 100%);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: loaderText 2s linear infinite;
+    letter-spacing: 3px;
+}
+
+@keyframes loaderText {
+    0% {
+        background-position: 200% center;
+    }
+
+    100% {
+        background-position: -200% center;
+    }
+}
