@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import Loading from "./loading";
 
-const AsyncAndAwaitPage = () => {
+const Page = () => {
   const [comments, setComments] = useState(null);
   useEffect(() => {
     const fetchComments = async () => {
@@ -39,4 +39,4 @@ const AsyncAndAwaitPage = () => {
   );
 };
 
-export default AsyncAndAwaitPage;
+export default Page;
