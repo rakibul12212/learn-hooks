@@ -13,6 +13,8 @@ const navLinks = [
   { href: "/Pages/AsyncAndAwaitPage", label: "AsyncAndAwait" },
   { href: "/Pages/ArrayMethodPage", label: "ArrayMethod" },
   { href: "/Pages/Callback-Function", label: "Callback-Function" },
+  { href: "/Pages/Event", label: "Event" },
+  { href: "/Pages/Checkout", label: "Checkout" },
 ];
 
 const Header = () => {
@@ -31,19 +33,35 @@ const Header = () => {
       <Link href="/" className="font-semibold text-2xl">
         CodeNest.
       </Link>
-      <div className="font-semibold">
-        <select
-          onChange={handleChange}
-          value={pathname}
-          className="border border-gray-300 rounded px-3 py-2"
-        >
-          <option value="">Select Learning Item</option>
-          {navLinks.map((link) => (
-            <option key={link.href} value={link.href}>
-              {link.label}
-            </option>
-          ))}
-        </select>
+      <div className="flex items-center gap-4">
+        <div className="font-semibold">
+          <select
+            onChange={handleChange}
+            value={pathname}
+            className="border border-gray-300 rounded px-3 py-2"
+          >
+            <option value="">Hooks</option>
+            {navLinks.slice(0, 4).map((link) => (
+              <option key={link.href} value={link.href}>
+                {link.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="font-semibold">
+          <select
+            onChange={handleChange}
+            value={pathname}
+            className="border border-gray-300 rounded px-3 py-2"
+          >
+            <option value="">item list 2</option>
+            {navLinks.slice(5).map((link) => (
+              <option key={link.href} value={link.href}>
+                {link.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </div>
   );
