@@ -15,6 +15,7 @@ const navLinks = [
   { href: "/Pages/Callback-Function", label: "Callback-Function" },
   { href: "/Pages/Event", label: "Event" },
   { href: "/Pages/Checkout", label: "Checkout" },
+  { href: "/Pages/Checkout-practice", label: "Checkout-practice" },
 ];
 
 const Header = () => {

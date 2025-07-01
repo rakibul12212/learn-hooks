@@ -76,9 +76,6 @@ export default function checkout() {
 
     setItems(tempProduct);
     handleSubTotal(index);
-    console.log(
-      "HandleName: " + event.target.value + "Prd Price: " + items[index].price,
-    );
   };
   const handlePrice = (event, index) => {
     event.preventDefault();
@@ -86,7 +83,6 @@ export default function checkout() {
     tempProduct[index].price = event.target.value;
     setItems(tempProduct);
     handleSubTotal(index);
-    console.log("Price: " + items[index].price);
   };
 
   const handleQty = (event, index) => {
@@ -101,7 +97,6 @@ export default function checkout() {
     tempProduct[index].discount = event.target.value;
     setItems(tempProduct);
     handleSubTotal(index);
-    console.log("Dis: " + tempProduct[index].discount);
   };
 
   const addMore = () => {
