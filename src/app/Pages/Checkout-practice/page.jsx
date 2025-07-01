@@ -71,7 +71,12 @@ const page = () => {
     handleVat(vat);
     console.log("show" + typeof Price, typeof Quantity, typeof Discount);
   };
-
+  // useEffect(() => {
+  //   let total = 0;
+  //   items.map((data, index) => {
+  //     total = total + subTotal[index];
+  //   });
+  // }, [subTotal]);
 
   useEffect(() => {
     let total = 0;
