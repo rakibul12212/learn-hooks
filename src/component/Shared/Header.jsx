@@ -17,6 +17,7 @@ const navLinks = [
   { href: "/Pages/Checkout", label: "Checkout" },
   { href: "/Pages/Checkout-practice", label: "Checkout-practice" },
   { href: "/Pages/Checkout-practice-3", label: "Checkout-practice-3" },
+  { href: "/Pages/Filter", label: "Filter" },
 ];
 
 const Header = () => {
