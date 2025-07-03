@@ -1,18 +1,17 @@
 "use client";
 import React, { useState } from "react";
-
 const data = [
   {
-    Name: "Grandpa Joe",
-    Age: 78,
-    Location: "Village A",
-    Parents: [
+    name: "Grandpa Joe",
+    age: 78,
+    location: "Village A",
+    parents: [
       {
         name: "Papa John",
         age: 50,
         location: "City B",
         money: 8000,
-        Children: [
+        children: [
           {
             name: "Alex",
             age: 27,
@@ -70,7 +69,7 @@ const data = [
         age: 48,
         location: "City D",
         money: 6000,
-        Children: [
+        children: [
           {
             name: "Cousin Mike",
             age: 21,
@@ -90,16 +89,16 @@ const data = [
     ],
   },
   {
-    Name: "Grandma Lucy",
-    Age: 75,
-    Location: "Village Z",
-    Parents: [
+    name: "Grandma Lucy",
+    age: 75,
+    location: "Village Z",
+    parents: [
       {
         name: "Mom Clara",
         age: 53,
         location: "City Y",
         money: 9000,
-        Children: [
+        children: [
           {
             name: "Meghan",
             age: 28,
@@ -150,10 +149,19 @@ const Filter = () => {
     const value = e.target.value;
     console.log(value);
     setSearch(value);
-    };
-    const searchItem = data.filter((name) =>
-        name.Name.toLowerCase().includes(search.toLowerCase().trim())
-    );
+  };
+  const searchGrandParent = data.filter((name) =>
+    name.name.toLowerCase().includes(search.toLowerCase()),
+  );
+  const parentData = data.flatMap((item) => item.parents);
+  const searchParent = parentData.filter((parent) =>
+    parent.name.toLowerCase().includes(search.toLowerCase()),
+  );
+  const childData = parentData.flatMap((item) => item.children);
+  const searchChildren = childData.filter((children) =>
+    children.name.toLowerCase().includes(search.toLowerCase()),
+  );
+  console.log("childData ", childData);
 
   return (
     <div className="p-10 space-y-5">
@@ -166,24 +174,14 @@ const Filter = () => {
         value={search}
         onChange={(e) => handleSearch(e)}
       />
-      {searchItem.map((data, index) => (
-        <div key={index}>
-          <div className="bg-blue-50 border p-1">
-            <p>{data.Name}</p>
-            <p>{data.Age}</p>
-            <p>{data.Location}</p>
-            <div className="bg-blue-100 border p-1 px-4">
-              <p className="font-semibold">Parents</p>
-              {data.Parents.map((parent, index) => (
-                <div key={index}>
-                  <p>{parent.name}</p>
-                  <p>{parent.age}</p>
-                  <p>{parent.location}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+      {searchGrandParent.map((person, index) => (
+        <p key={index}>{person.name}</p>
+      ))}
+      {searchParent.map((person, index) => (
+        <p key={index}>{person.name}</p>
+      ))}
+      {searchChildren.map((person, index) => (
+        <p key={index}>{person.name}</p>
       ))}
     </div>
   );
