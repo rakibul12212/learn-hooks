@@ -149,14 +149,18 @@ const Filter = () => {
     const value = e.target.value;
     console.log(value);
     setSearch(value);
+    console.log (value);
   };
-  const searchGrandParent = data.filter((name) =>
-    name.name.toLowerCase().includes(search.toLowerCase()),
+  const searchGrandParent = data.filter((grandParent) =>
+    grandParent.name.toLowerCase().includes(search.toLowerCase()),
   );
+  console.log("grandParent ", data);
   const parentData = data.flatMap((item) => item.parents);
   const searchParent = parentData.filter((parent) =>
     parent.name.toLowerCase().includes(search.toLowerCase()),
   );
+  console.log("parentData ", parentData);
+  
   const childData = parentData.flatMap((item) => item.children);
   const searchChildren = childData.filter((children) =>
     children.name.toLowerCase().includes(search.toLowerCase()),
@@ -174,15 +178,47 @@ const Filter = () => {
         value={search}
         onChange={(e) => handleSearch(e)}
       />
-      {searchGrandParent.map((person, index) => (
-        <p key={index}>{person.name}</p>
-      ))}
-      {searchParent.map((person, index) => (
-        <p key={index}>{person.name}</p>
-      ))}
-      {searchChildren.map((person, index) => (
-        <p key={index}>{person.name}</p>
-      ))}
+
+      <div className="mt-10">
+        {searchGrandParent.length === 0 &&
+        searchParent.length === 0 &&
+        searchChildren.length === 0 ? (
+          <p>No results found</p>
+        ) : (
+          <table className="w-full mt-4 border-collapse">
+            <thead>
+              <tr className="text-left">
+                <th className="border border-gray-300 p-2">Name</th>
+                <th className="border border-gray-300 p-2">Type</th>
+                <th className="border border-gray-300 p-2">Generation</th>
+              </tr>
+            </thead>
+            <tbody>
+              {searchGrandParent.map((person, index) => (
+                <tr key={index}>
+                  <td className="border border-gray-300 p-2">{person.name}</td>
+                  <td className="border border-gray-300 p-2">Grandparent</td>
+                  <td className="border border-gray-300 p-2">1st Generation</td>
+                </tr>
+              ))}
+              {searchParent.map((person, index) => (
+                <tr key={index}>
+                  <td className="border border-gray-300 p-2">{person.name}</td>
+                  <td className="border border-gray-300 p-2">Parent</td>
+                  <td className="border border-gray-300 p-2">2nd Generation</td>
+                </tr>
+              ))}
+              {searchChildren.map((person, index) => (
+                <tr key={index}>
+                  <td className="border border-gray-300 p-2">{person.name}</td>
+                  <td className="border border-gray-300 p-2">Child</td>
+                  <td className="border border-gray-300 p-2">3rd Generation</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
     </div>
   );
 };
