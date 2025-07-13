@@ -11,13 +11,15 @@ const navLinks = [
   { href: "/Pages/CustomHookPage", label: "Custom hook" },
   { href: "/Pages/Promise", label: "Promise" },
   { href: "/Pages/AsyncAndAwaitPage", label: "AsyncAndAwait" },
-  { href: "/Pages/ArrayMethodPage", label: "ArrayMethod" },
+  { href: "/Pages/ArrayMethod", label: "ArrayMethod" },
   { href: "/Pages/Callback-Function", label: "Callback-Function" },
   { href: "/Pages/Event", label: "Event" },
   { href: "/Pages/Checkout", label: "Checkout" },
   { href: "/Pages/Checkout-practice", label: "Checkout-practice" },
   { href: "/Pages/Checkout-practice-3", label: "Checkout-practice-3" },
   { href: "/Pages/Filter", label: "Filter" },
+  { href: "/Pages/GraphQL", label: "GraphQL" },
+  { href: "/Pages/Problems", label: "Problems" },
 ];
 
 const Header = () => {

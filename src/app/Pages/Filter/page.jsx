@@ -143,6 +143,8 @@ const data = [
   },
 ];
 
+
+
 const Filter = () => {
   const [search, setSearch] = useState("");
   const handleSearch = (e) => {
@@ -160,12 +162,15 @@ const Filter = () => {
     parent.name.toLowerCase().includes(search.toLowerCase()),
   );
   console.log("parentData ", parentData);
-  
+
   const childData = parentData.flatMap((item) => item.children);
   const searchChildren = childData.filter((children) =>
     children.name.toLowerCase().includes(search.toLowerCase()),
   );
   console.log("childData ", childData);
+
+
+  
 
   return (
     <div className="p-10 space-y-5">
