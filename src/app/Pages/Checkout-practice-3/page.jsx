@@ -1,12 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const page = () => {
   const [inputs, setInputs] = useState([
     { name: "", price: 0, quantity: 0, discount: 0, total: 0 },
   ]);
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState({});
   const [vat, setVat] = useState(0);
+  const [subTotal, setSubTotal] = useState(0);
 
   const handleName = (event, index) => {
     let Product = inputs;
@@ -39,21 +40,27 @@ const page = () => {
     let Discount = Product[index].discount;
     let discountAmount = (Price * Quantity * Discount) / 100;
     const Total = Price * Quantity - discountAmount;
-    console.log("total amount" + Total);
+
     setInputs(Product);
     setTotal((prev) => ({ ...prev, [index]: Total }));
   };
+  useEffect(() => {
+    let subTotal = 0;
+    inputs.map((data, index) => {
+      subTotal = subTotal + parseFloat(total[index]);
+    });
+
+    setSubTotal(subTotal);
+  }, [total]);
 
   const handleVat = (value) => {
-    
-    const vatAmount = value;
-    const totalVat = vatAmount / 100;
-    console.log("vat" + totalVat);
+    let vatCount = value;
+
+    let totalVat = subTotal + (subTotal * vatCount) / 100;
+    console.log(totalVat);
+
     setVat(totalVat);
-    
-   
   };
-  console.log(vat);
 
   const handleAddBtn = () => {
     setInputs([
@@ -117,17 +124,21 @@ const page = () => {
           </p>
         </div>
       ))}
-      <div className="flex gap-x-4 items-center justify-end border-t-1 pt-3">
-        <p>vat(%)</p>
-        <input
-          type="number"
-          name="vat"
-          onChange={(e) => {
-            handleVat(e.target.value);
-          }}
-          className="border-1 border-gray-600 p-2 w-[60px] "
-        />
-        <p>{vat}</p>
+      <div className="border-t-1 pt-3">
+        <p className="text-right font-semibold">subtotal: {subTotal}</p>
+
+        <div className="flex gap-4 items-center justify-end ">
+          <p>vat(%)</p>
+          <input
+            type="number"
+            name="vat"
+            onChange={(e) => {
+              handleVat(e.target.value);
+            }}
+            className="border-1 border-gray-600 p-2 w-[60px] "
+          />{" "}
+        </div>
+        <p className="text-right font-semibold">Total: {vat}</p>
       </div>
     </div>
   );
