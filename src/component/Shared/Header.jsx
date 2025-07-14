@@ -19,6 +19,7 @@ const navLinks = [
   { href: "/Pages/Checkout-practice-3", label: "Checkout-practice-3" },
   { href: "/Pages/Filter", label: "Filter" },
   { href: "/Pages/GraphQL", label: "GraphQL" },
+  { href: "/Pages/Dropdown", label: "Dependent-Dropdown" },
   { href: "/Pages/Problems", label: "Problems" },
 ];
 
