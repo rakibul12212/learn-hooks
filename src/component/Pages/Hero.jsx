@@ -1,6 +1,7 @@
 import React from "react";
 
-const HeroSection = () => {
+
+const HeroSection = (props) => {
   return (
     <div>
       <img
