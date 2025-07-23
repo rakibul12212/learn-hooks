@@ -79,7 +79,7 @@ const page = () => {
     <div className="p-10">
       <div className="text-right pb-5">
         <button
-          className="px-4 py-2 border-1 rounded max-w-[200px] font-semibold bg-green-50 border-green-500 text-green-500 hover:bg-green-900 hover:text-white"
+          className="px-4 border-1 rounded max-w-[200px] font-semibold bg-green-50 border-green-500 text-green-500 hover:bg-green-900 hover:text-white"
           onClick={handleAddBtn}
         >
           Add More
