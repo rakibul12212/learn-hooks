@@ -45,11 +45,15 @@ const productTotals = inventory.map((item) => ({
   name: item.name,
   totalQuantity: item.stock.reduce((sum, stock) => sum + stock.quantity, 0),
 }));
-
 const lowStock = productTotals.filter((product) => product.totalQuantity <= 5);
 const stockStatus = productTotals.reduce(
-  (sum, product) => sum + product.totalQuantity,0);
+  (sum, product) => sum + product.totalQuantity,
+  0,
+);
 console.log(stockStatus);
+
+const reorderThreshold = inventory.map((item) => item.reorderThreshold);
+console.log("reorderThreshold:", { reorderThreshold });
 
 const page = () => {
   return (
