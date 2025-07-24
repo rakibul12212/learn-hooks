@@ -55,6 +55,25 @@ console.log(stockStatus);
 const reorderThreshold = inventory.map((item) => item.reorderThreshold);
 console.log("reorderThreshold:", { reorderThreshold });
 
+// --------------------
+const priority = inventory.map((item) =>
+  item.suppliers.map((supplier) => supplier.priority),
+);
+console.log("priority " + priority);
+const findPriority = priority.includes((item) => item == 1);
+
+console.log("findPriority: " + findPriority);
+if (findPriority == 1) {
+  console.log("true");
+}else {
+  console.log("false");
+}
+const FindPriority = priority.indexOf(1);
+console.log("findPriority: " + FindPriority);
+const findPriority2 = priority.some((item) => item === 1);
+console.log("findPriority2: " + findPriority2);
+// --------------------
+
 const page = () => {
   return (
     <div className="p-10">
@@ -86,6 +105,7 @@ const page = () => {
             ))}
           </div>
         </div>
+        
       </div>
     </div>
   );
