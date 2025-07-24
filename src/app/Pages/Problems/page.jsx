@@ -47,15 +47,19 @@ const productTotals = inventory.map((item) => ({
 }));
 
 const lowStock = productTotals.filter((product) => product.totalQuantity <= 5);
+const stockStatus = productTotals.reduce(
+  (sum, product) => sum + product.totalQuantity,0);
+console.log(stockStatus);
 
 const page = () => {
   return (
     <div className="p-10">
       <div>
         <p className="text-xl font-semibold">
-          Inventory Management: Stock and Supply Chain 1
+          Inventory Management: Stock and Supply Chain
         </p>
-       
+        <div className="mb-4">
+          <p>ques : 1</p>
           {lowStock.length > 0 && (
             <div className="mt-4">
               <h3 className="font-semibold text-red-600">Low Stock Alert:</h3>
@@ -67,8 +71,19 @@ const page = () => {
             </div>
           )}
         </div>
+        <div>
+          <p>ques : 2</p>
+          <div className="mt-4">
+            <h3 className="font-semibold text-red-600">Stock status:</h3>
+            {productTotals.map((product) => (
+              <p key={product.productId} className="text-red-500">
+                {product.name}: {product.totalQuantity}
+              </p>
+            ))}
+          </div>
+        </div>
       </div>
-    
+    </div>
   );
 };
 
