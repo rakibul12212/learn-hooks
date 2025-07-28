@@ -7,6 +7,7 @@ import React from "react";
 const navLinks = [
   { href: "/Pages/UseStatePage", label: "UseState" },
   { href: "/Pages/UseEffectPage", label: "UseEffect" },
+  { href: "/Pages/UseContextPage", label: "UseContext" },
   { href: "/Pages/UseReducePage", label: "UseReduce" },
   { href: "/Pages/CustomHookPage", label: "Custom hook" },
   { href: "/Pages/Promise", label: "Promise" },
@@ -47,7 +48,7 @@ const Header = () => {
             className="border border-gray-300 rounded px-3 py-2"
           >
             <option value="">Hooks</option>
-            {navLinks.slice(0, 4).map((link) => (
+            {navLinks.slice(0, 5).map((link) => (
               <option key={link.href} value={link.href}>
                 {link.label}
               </option>
@@ -61,7 +62,7 @@ const Header = () => {
             className="border border-gray-300 rounded px-3 py-2"
           >
             <option value="">item list 2</option>
-            {navLinks.slice(5).map((link) => (
+            {navLinks.slice(6).map((link) => (
               <option key={link.href} value={link.href}>
                 {link.label}
               </option>

@@ -2,6 +2,8 @@ import Header from "@/component/Shared/Header";
 import "./globals.css";
 import { Container } from "@/component/UI/Container";
 import ApolloClientPage from "@/component/ApolloClient/ApolloClient";
+import { CardProvider } from "@/component/context/cardContext";
+
 
 export const metadata = {
   title: "CodeNest",
@@ -13,8 +15,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Container>
-          <Header />
-          <ApolloClientPage>{children}</ApolloClientPage>
+          <CardProvider>
+            <Header />
+            <ApolloClientPage>{children}</ApolloClientPage>
+          </CardProvider>
         </Container>
       </body>
     </html>
